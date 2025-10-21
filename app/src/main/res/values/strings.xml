@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Prova</string>
+    <string name="b_o_bmi_calculator">B &amp; O BMI CALCULATOR</string>
+    <string name="height">HEIGHT</string>
+    <string name="female">FEMALE</string>
+    <string name="female_icon">Female icon</string>
+    <string name="male">MALE</string>
+    <string name="male_icon">Male icon</string>
+    <string name="age">AGE</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="menos">—</string>
+    <string name="mas">+\n</string>
+    <string name="bmi_results">BMI Results</string>
+    <string name="your_results">Your Results</string>
+</resources>

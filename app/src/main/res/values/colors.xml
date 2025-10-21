@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name ="colorIMC">#0f0f28</color>
+    <color name="darkGrey">#191e32</color>
+    <color name="backgroundIMC">#0a0a1e</color>
+    <color name="letterGrey">#686976</color>
+    <color name="purple">#502da5</color>
+    <color name="buttonGrey">#4b4b5a</color>
+    <color name ="green">#23d773</color>
+</resources>
