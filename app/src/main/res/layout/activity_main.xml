@@ -126,13 +126,14 @@
                android:textColor="@color/letterGrey">
            </TextView>
             <TextView
+                android:id="@+id/TextViewHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/height"
+                android:text="170"
+                android:textSize="40sp"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="@color/letterGrey">
-            </TextView>
+                android:textColor="@color/white"
+                />
             <SeekBar
                 android:layout_width="300dp"
                 android:layout_height="50dp"
