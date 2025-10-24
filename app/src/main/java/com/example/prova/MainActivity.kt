@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +18,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonAgeSum : Button
     private lateinit var TextViewWeight : TextView
     private lateinit var TextViewAge : TextView
+    private lateinit var SBheight: SeekBar
+    private lateinit var TextViewHeight : TextView
+    private lateinit var CVFMale : CardView
+    private lateinit var CVFemale : CardView
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,31 +36,90 @@ class MainActivity : AppCompatActivity() {
         buttonAgeSum = findViewById(R.id.buttonAgeSum)
         TextViewAge = findViewById(R.id.TextViewAge)
         TextViewWeight = findViewById(R.id.TextViewWeight)
+        SBheight = findViewById<SeekBar>(R.id.SBheight)
+        TextViewHeight = findViewById(R.id.TextViewHeight)
+        CVFMale = findViewById(R.id.CVFMale)
+        CVFemale = findViewById(R.id.CVFemale)
 
-
-
-
-        calculateButton.setOnClickListener{
-            val intent = Intent(this, MainActivity2::class.java)
-            intent.putExtra("nom", "Giovanni")
-            startActivity(intent)
-        }
+        var Color = "purple"
+        var ColorF = "purple"
 
         buttonWeightRes.setOnClickListener {
-            TextViewWeight.text = (TextViewWeight.text.toString().toInt() - 1).toString()
+            var pes = TextViewWeight.text.toString().toInt()
+            if(pes > 1){
+                TextViewWeight.text = (pes - 1).toString()
+            }
         }
 
         buttonWeigthSum.setOnClickListener {
-            TextViewWeight.text = (TextViewWeight.text.toString().toInt() + 1).toString()
+            var pes = TextViewWeight.text.toString().toInt()
+            if(pes < 300){
+                TextViewWeight.text = (pes + 1).toString()
+            }
         }
 
         buttonAgeRes.setOnClickListener {
-            TextViewAge.text = (TextViewAge.text.toString().toInt() - 1).toString()
+            var edat = TextViewAge.text.toString().toInt()
+            if( edat > 1){
+                TextViewAge.text = (edat - 1).toString()
+            }
         }
 
         buttonAgeSum.setOnClickListener {
-            TextViewAge.text = (TextViewAge.text.toString().toInt() + 1).toString()
+            var edat = TextViewAge.text.toString().toInt()
+            if( edat <= 100) {
+                TextViewAge.text = (edat + 1).toString()
+            }
         }
 
+        SBheight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                TextViewHeight.text = progress.toString()
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+            }
+        })
+        CVFMale.setOnClickListener {
+            if (Color == "purple") {
+                CVFMale.setCardBackgroundColor(getColor(R.color.purple))
+                CVFemale.setCardBackgroundColor(getColor(R.color.colorIMC))
+                Color = "colorIMC"
+                ColorF = "purple"
+            }
+            else{
+                CVFMale.setCardBackgroundColor(getColor(R.color.colorIMC))
+                Color = "purple"
+            }
+        }
+        CVFemale.setOnClickListener {
+            if (ColorF == "purple") {
+                CVFemale.setCardBackgroundColor(getColor(R.color.purple))
+                CVFMale.setCardBackgroundColor(getColor(R.color.colorIMC))
+                ColorF = "colorIMC"
+                Color = "purple"
+            }
+            else{
+                CVFemale.setCardBackgroundColor(getColor(R.color.colorIMC))
+                ColorF = "purple"
+            }
+        }
+
+        calculateButton.setOnClickListener {
+            val peso = TextViewWeight.text.toString().toDoubleOrNull()
+            val alturaEnMetros = SBheight.progress.toDouble() / 100
+
+            if (peso == null || peso == 0.0 || alturaEnMetros == 0.0) {
+                return@setOnClickListener
+            }
+
+            val imc = peso / (alturaEnMetros * alturaEnMetros)
+            val intent = Intent(this, MainActivity2::class.java)
+            intent.putExtra("IMC", imc)
+            startActivity(intent)
+        }
     }
 }

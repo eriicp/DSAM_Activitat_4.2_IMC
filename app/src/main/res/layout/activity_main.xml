@@ -43,7 +43,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="@color/colorIMC">
+            >
 
             <ImageView
                 android:layout_width="100dp"
@@ -81,7 +81,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
-            android:background="@color/colorIMC">
+        >
 
             <ImageView
                 android:layout_width="100dp"
@@ -117,28 +117,47 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/height"
-               android:textStyle="bold"
-               android:textSize="18sp"
-               android:textColor="@color/letterGrey">
-           </TextView>
             <TextView
-                android:id="@+id/TextViewHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="170"
-                android:textSize="40sp"
+                android:text="@string/height"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                />
-            <SeekBar
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                />
+                android:textSize="18sp"
+                android:textColor="@color/letterGrey">
+            </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom|center">
+                <TextView
+                    android:id="@+id/TextViewHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:id="@+id/TextViewCentimeters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Centimeters"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+                <SeekBar
+                    android:id="@+id/SBheight"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:max="250"
+                    android:min="100"
+                    />
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -174,7 +193,7 @@
                 android:id="@+id/TextViewWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="170"
+                android:text="70"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"

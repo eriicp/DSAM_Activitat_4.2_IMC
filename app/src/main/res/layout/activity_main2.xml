@@ -68,6 +68,7 @@
                 android:gravity="center"
                 >
                 <TextView
+                    android:id="@+id/TextViewClase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/green"
@@ -87,6 +88,7 @@
                     android:layout_marginBottom="50dp"
                     />
                 <TextView
+                    android:id="@+id/TextViewClase2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -99,6 +101,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/ReCalcBtn"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
